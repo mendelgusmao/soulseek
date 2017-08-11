@@ -13,7 +13,7 @@ $ docker run \
     -v /Users/Downloads:/home/soulseek/Downloads \
     -p 5900:5900 \
     -d \
-    danielguerra/soulseek
+    mendelgusmao/soulseek
 ```
 
 and check:
