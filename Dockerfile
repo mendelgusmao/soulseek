@@ -1,11 +1,10 @@
-FROM ubuntu:16.04
+FROM alpine:3.6
 MAINTAINER Mendelson Gusmão
-RUN apt-get -yy update \
-&& apt-get -y install --no-install-recommends wget libx11-6 libx11-xcb1 libfontconfig1 supervisor xvfb x11vnc software-properties-common openbox xterm\
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN addgroup soulseek
-RUN useradd -m -s /bin/bash -g soulseek soulseek
+RUN apk update
+RUN apk add supervisor openbox xvfb xterm libstdc++ libgcc libc6-compat
+RUN apk add x11vnc --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+RUN addgroup -S soulseek
+Run adduser -S -g soulseek soulseek
 RUN echo "soulseek:soulseek" | /usr/sbin/chpasswd
 RUN echo "soulseek    ALL=(ALL) ALL" >> /etc/sudoers
 WORKDIR /home/soulseek
