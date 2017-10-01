@@ -24,16 +24,3 @@ $ docker logs soulseek
 After this use a vnc client to connect (dockerhost:5900)
 Everything should start automaticly, Click Ok, next next finish yes.
 
-If not try the following:
-In your vnc session right click your mouse then choose install soulseek.
-Click Ok, next next finish yes.
-Right click again and choose start soulseek.
-Login with your soulseek account.
-
-If you want to install more packages you can right click in the vnc screen
-and choose xterm. The password is `soulseek`
-
-```
-sudo apt-get update
-sudo apt-get chrome
-```
