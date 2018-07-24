@@ -1,5 +1,5 @@
-FROM ubuntu:17.04
-MAINTAINER Mendelson Gusmão
+FROM ubuntu:18.04
+MAINTAINER github.com/mendelgusmao
 
 ENV DISPLAY :1
 ENV SOULSEEK_DL "https://www.dropbox.com/s/7qh902qv2sxyp6p/SoulseekQt-2016-1-17-64bit.tgz?dl=1"
