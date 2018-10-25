@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 MAINTAINER github.com/mendelgusmao
 
 ENV DISPLAY :1
