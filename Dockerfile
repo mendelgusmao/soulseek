@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM debian:stretch-slim
 MAINTAINER github.com/mendelgusmao
 
 ENV DISPLAY :1
