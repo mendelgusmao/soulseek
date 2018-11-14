@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+ env
+/usr/bin/x11vnc -display ${DISPLAY} -nopw -wait 5 -shared
