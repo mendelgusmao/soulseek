@@ -1,0 +1,4 @@
+#!/usr/bin/execlineb -P
+
+# s6-setuidgid soulseek
+# /usr/bin/x11vnc -display :1 -nopw -wait 5 -shared
