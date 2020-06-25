@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 MAINTAINER github.com/mendelgusmao
 
 ENV DISPLAY :1
-ENV SOULSEEK_DL "https://www.dropbox.com/s/7qh902qv2sxyp6p/SoulseekQt-2016-1-17-64bit.tgz?dl=1"
+ENV SOULSEEK_DL "https://www.slsknet.org/SoulseekQt/Linux/SoulseekQt-2018-1-30-64bit-appimage.tgz"
 
 RUN apt-get -yy update \
     && apt-get -y install --no-install-recommends \
@@ -16,7 +16,10 @@ WORKDIR /home/soulseek
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD menu.xml /etc/xdg/openbox/menu.xml
 ADD start /bin/start
-RUN wget -qO- "$SOULSEEK_DL" | tar xzvf - -C /usr/bin --transform='s/.*/soulseek/'
+RUN wget -qO- "$SOULSEEK_DL" | tar xzvf - -C /tmp --transform='s/.*/soulseek-image/' \
+    && /tmp/soulseek-image --appimage-extract \
+    && chmod 655 squashfs-root \
+    && chmod 655 -R squashfs-root/lib squashfs-root/plugins
 
 RUN apt-get -y remove --purge wget ca-certificates; \
     apt-get -y autoremove --purge; \
